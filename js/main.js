@@ -131,10 +131,11 @@ $(".sou-button").click(function () {
     }
 });
 
-//鼠标中键点击事件
-$(window).mousedown(function (event) {
-    if (event.button == 1) {
-        $("#time_text").click();
+//鼠标右键点击事件
+$(window).on("mousedown", function(event) {
+  if (event.which == 3) { // 判断是否为鼠标右键（which == 3）
+    event.preventDefault();
+    $("#time_text").click(); // 触发id为"time_text"元素的点击事件
     }
 });
 

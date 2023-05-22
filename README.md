@@ -1,6 +1,6 @@
 <p>
 <strong><h2>Snavigation</h2></strong>
-一个简约的起始页
+一个简约的起始页，将鼠标中键展开菜单改为了鼠标右键。
 </p>
 
 ![Snavigation.png](https://s2.loli.net/2022/07/15/FE6U2BJCynHDep8.jpg)

@@ -1,6 +1,8 @@
 <p>
 <strong><h2>Snavigation</h2></strong>
 一个简约的起始页，将鼠标中键展开菜单改为了鼠标右键。
+  修改为输入框内不展开菜单，防止误触
+  修改天气api为使用高德天气api，每日20000次免费访问
 </p>
 
 ![Snavigation.png](https://s2.loli.net/2022/07/15/FE6U2BJCynHDep8.jpg)

@@ -84,15 +84,15 @@ function time() {
 }
 
 //获取天气
-//每日限量 100 次
-//请前往 https://www.tianqiapi.com/index/doc?version=v6 申请（免费）
-fetch('https://yiketianqi.com/api?unescape=1&version=v6&appid=43986679&appsecret=TksqGZT7')
+//每日限量 20000 次
+//请前往高德天气api申请（免费）
+fetch('https://restapi.amap.com/v3/weather/weatherInfo?key=caa6d35a6f955253d72e622841f055ed&city=370725')
     .then(response => response.json())
     .then(data => {
         //$('#wea_text').html(data.wea + '&nbsp;' + data.tem_night + '℃' + '&nbsp;~&nbsp;' + data.tem_day + '℃')
-        $('#wea_text').text(data.wea)
-        $('#tem1').text(data.tem1)
-        $('#tem2').text(data.tem2)
+        $('#wea_text').text(data.lives[0].weather);
+        $('#tem1').text(data.lives[0].temperature);
+        $('#tem2').text(data.lives[0].humidity);
     })
     .catch(console.error)
     
@@ -132,11 +132,14 @@ $(".sou-button").click(function () {
 });
 
 //鼠标右键点击事件
-$(window).on("mousedown", function(event) {
-  if (event.which == 3) { // 判断是否为鼠标右键（which == 3）
-    event.preventDefault();
-    $("#time_text").click(); // 触发id为"time_text"元素的点击事件
+$(document).ready(function() {
+  $(window).on("contextmenu", function(event) {
+    var target = event.target;
+    if (target.tagName !== "INPUT") { // 如果目标元素不是输入框，则触发id为"time_text"元素的点击事件
+      event.preventDefault(); // 阻止默认右键菜单行为
+      $("#time_text").click(); // 触发id为"time_text"元素的点击事件
     }
+  });
 });
 
 //控制台输出
